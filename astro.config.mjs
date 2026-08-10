@@ -24,8 +24,8 @@ export default defineConfig({
   ],
 
   vite: {
-    plugins: [tailwindcss()]
+    plugins: [tailwindcss)]
   },
-  site: "https://Juan297297.github.io", // change to your domain
-  integrations: [sitemap()]
+  site: "https://Juan297297.github.io",
+  integrations: [sitemap)]
 });
