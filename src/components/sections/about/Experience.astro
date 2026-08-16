@@ -9,18 +9,3 @@ import { getCollection } from "astro:content";
 const experience = await getCollection("experience");
 ---
 
-<Section 
-    aria-label="Experience"
-    title="Experience"
-    titleHeading="Where I've worked"
->
-    {
-            experience.map((entry) => (
-                <ExperienceCard 
-                    title={entry.data.title}
-                    timeline={entry.data.timeline}
-                    description={entry.data.description}
-                />
-            ))
-        }
-</Section>
