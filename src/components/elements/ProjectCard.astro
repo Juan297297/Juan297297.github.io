@@ -10,7 +10,7 @@ import Heading from "../elements/Heading.astro";
 import Link from "../elements/Link.astro"
 import Tag from "../elements/Tag.astro";
 
-const { title, year, github, website, description, tools } = Astro.props;
+const { title, year, github, website, description, tools, video} = Astro.props;
 
 const links = [
     { icon: Github, text: "Source", url: github },
@@ -19,6 +19,19 @@ const links = [
 ---
 
 <div class="border-2 border-base-900">
+{
+    video && (
+        <div class="w-full aspect-video">
+            <iframe
+                src={`https://www.youtube.com/embed/${video}`}
+                title={title}
+                class="w-full h-full"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+            ></iframe>
+        </div>
+    )
+}
     <div class="bg-base-900 p-16 flex flex-col gap-16">
         <Heading tagName="h3" tagSize="h3">{title}</Heading>
         <div class="flex md:flex-row md:gap-32 flex-col gap-16">
