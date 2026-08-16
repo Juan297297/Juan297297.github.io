@@ -9,18 +9,3 @@ import { getCollection } from "astro:content";
 const education = await getCollection("education");
 ---
 
-<Section 
-    aria-label="Education"
-    title="Education"
-    titleHeading="My studies"
->
-    {
-            education.map((entry) => (
-                <EducationCard 
-                    title={entry.data.title}
-                    timeline={entry.data.timeline}
-                    school={entry.data.school}
-                />
-            ))
-        }
-</Section>
