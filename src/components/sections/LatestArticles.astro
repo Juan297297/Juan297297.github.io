@@ -18,20 +18,3 @@ const recentArticles = blog
   }));
 ---
 
-<Section 
-    aria-label="Latest Articles"
-    title="Latest Articles"
-    titleHeading="What I've recently wrote"
->
-    {
-            recentArticles.map((article) => (
-                <ArticleCard
-                    title={article.data.title}
-                    publishedDate={article.data.publishedDate}
-                    slug={article.data.slug}
-                    category={article.data.category}
-                    readingTime={article.readingTime}
-                />
-            ))
-        }
-</Section>
