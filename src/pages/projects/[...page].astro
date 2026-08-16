@@ -1,28 +1,46 @@
 ---
 import Layout from "../../layout/Layout.astro";
 
-export const getStaticPaths = () => {
-    return [
-        {
-            params: { page: undefined }
-        }
-    ];
-};
+import Section from "../../components/elements/Section.astro";
+import ProjectCard from "../../components/elements/ProjectCard.astro";
+import Pagination from "../../components/elements/Pagination.astro";
+
+import type { GetStaticPaths } from "astro";
+import { getCollection } from "astro:content";
+
+export const getStaticPaths = (async ({ paginate }) => {
+    const projects = await getCollection("projects", ({ data }) => !data.isDraft);
+    return paginate(projects, { pageSize: 6 });
+}) satisfies GetStaticPaths;
+
+const { page } = Astro.props;
 ---
 
 <Layout
-    title="Presentación"
-    description="Presentación personal de Juan Palacios."
+    title="Proyectos"
+    description="Mis proyectos y trabajos."
+    ogImage=""
 >
-    <div class="w-full flex justify-center">
-        <div class="w-full max-w-4xl aspect-video">
-            <iframe
-                src="https://www.youtube.com/embed/UrG2qYGN0Ow"
-                title="Presentación de Juan Palacios"
-                class="w-full h-full"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen
-            ></iframe>
-        </div>
-    </div>
+    <Section
+        title="Proyectos"
+        titleHeading="Proyectos en los que he trabajado"
+    >
+        {
+            page.data.map((project) => (
+                <ProjectCard
+                    title={project.data.title}
+                    year={project.data.year}
+                    github={project.data.github}
+                    website={project.data.liveSite}
+                    description={project.data.description}
+                    tools={project.data.tools}
+                />
+            ))
+        }
+
+        <Pagination
+            prev={page.url.prev}
+            next={page.url.next}
+        />
+    </Section>
 </Layout>
