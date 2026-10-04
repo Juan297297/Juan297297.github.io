@@ -9,21 +9,32 @@ import Section from "../components/elements/Section.astro";
 >
     <Section id="modelado" title="Modelado" titleHeading="Modelado">
     <div class="flex flex-col gap-16">
-        <p><strong>04/10/2026 · MER de aerolínea</strong></p>
-        <p>
-            Modelo entidad-relación de una aerolínea: gestiona vuelos, rutas,
-            aviones, pasajeros (con sus reservas), tripulación (piloto y
-            auxiliar), insumos y proveedores.
+        <p class="text-base-100 text-16/8">
+            Aquí podemos ver un Modelo Entidad Relación Extendido, el cual hicimos a partir de un contexto que nos dieron: crear el modelo de la "Aerolínea AeroAndes".
         </p>
+        <p class="text-base-100 text-16/8">
+            Luego de esto teníamos que pasarlo a Reducción a Tablas.
+        </p>
+
         <a href="/evidencias/fsdcacas.png" target="_blank" rel="noopener noreferrer">
             <img
                 src="/evidencias/fsdcacas.png"
-                alt="MER de aerolínea"
+                alt="MER extendido de AeroAndes"
                 class="w-full max-w-4xl"
                 loading="lazy"
             />
         </a>
-        <p class="text-base-700">Toca la imagen para verla en grande.</p>
+        <p class="text-base-600 text-12">Si tocas la imagen podrás ampliarla.</p>
+
+        <a href="/evidencias/cap2.png" target="_blank" rel="noopener noreferrer">
+            <img
+                src="/evidencias/cap2.png"
+                alt="Reducción a tablas de AeroAndes"
+                class="w-full max-w-4xl"
+                loading="lazy"
+            />
+        </a>
+        <p class="text-base-600 text-12">Reducción a tablas del modelo anterior.</p>
     </div>
 </Section>
 
