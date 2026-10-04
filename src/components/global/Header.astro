@@ -1,7 +1,7 @@
 ---
 // assets
 import { Image } from "astro:assets";
-import photo from "../../assets/images/yo.jpeg";
+import photo from "../../assets/images/yo.jpeg"; // change to your image
 
 // components
 import Text from "../elements/Text.astro";
@@ -10,6 +10,7 @@ import SocialLinks from "../elements/SocialLinks.astro";
 
 // header content -> modify here!
 const {
+    role = "Ingeniero de Sistemas",
     name = "Juan Palacios",
     status = "Estudiante"
 } = Astro.props;
