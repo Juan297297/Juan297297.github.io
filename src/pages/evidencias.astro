@@ -69,4 +69,87 @@ import Section from "../components/elements/Section.astro";
     <Section id="proyecto" titleHeading="Proyecto">
         <p>Próximamente: aquí iré subiendo mis avances.</p>
     </Section>
+
+    <Section id="investigaciones" titleHeading="Investigaciones y retos">
+    <!-- Investigación 1: Reducción a tablas -->
+    <div class="flex flex-col gap-16">
+        <p class="text-base-300 text-20"><strong>04/10/2026 · Investigación: Reducción de diagramas ER a tablas relacionales</strong></p>
+        <p class="text-base-100 text-16/8">
+            <strong>Qué investigué:</strong> Busqué las reglas fundamentales para transformar un Diagrama Entidad-Relación (DER) conceptual a un modelo relacional de tablas, para entender cómo pasar de un diseño gráfico a una base de datos funcional.
+        </p>
+        <p class="text-base-100 text-16/8">
+            <strong>Qué aprendí:</strong> Aprendí que las entidades fuertes pasan a ser tablas directamente donde sus atributos simples son columnas y su clave primaria se mantiene. Para las relaciones, depende de la cardinalidad: en 1:N la clave primaria del lado 1 pasa como clave foránea al lado N; en N:M se debe crear una tabla intermedia que combine las claves primarias de ambas entidades; y para los atributos multivaluados se crea una nueva tabla referenciando a la entidad principal.
+        </p>
+        <p class="text-base-600 text-12">
+            Fuentes: <a href="https://www.geeksforgeeks.org/mapping-from-erd-to-relational-model/" target="_blank" rel="noopener noreferrer" class="underline">GeeksforGeeks - ER Diagram to Relational Model</a>
+        </p>
+    </div>
+
+    <!-- Investigación 2: Oracle SQL Developer Data Modeler -->
+    <div class="flex flex-col gap-16">
+        <p class="text-base-300 text-20"><strong>04/10/2026 · Investigación: Uso de Oracle SQL Developer Data Modeler</strong></p>
+        <p class="text-base-100 text-16/8">
+            <strong>Qué investigué:</strong> Indagué sobre las capacidades de Oracle SQL Developer Data Modeler y cómo facilita la automatización del diseño de bases de datos desde el nivel conceptual hasta el físico.
+        </p>
+        <p class="text-base-100 text-16/8">
+            <strong>Qué aprendí:</strong> Es una herramienta CASE bastante completa que permite construir el Modelo Lógico (diagramas ER) y, con un solo clic mediante la función <i>Engineer to Relational Model</i>, generar automáticamente el Modelo Relacional. Además, permite validar reglas de negocio, detectar errores de normalización y exportar directamente los scripts DDL en SQL para crear las tablas en un motor de base de datos.
+        </p>
+        <p class="text-base-600 text-12">
+            Fuentes: <a href="https://www.oracle.com/database/sqldeveloper/technologies/datamodeler/" target="_blank" rel="noopener noreferrer" class="underline">Oracle Data Modeler Documentation</a>
+        </p>
+    </div>
+
+    <!-- Investigación 3: Forma Normal Boyce-Codd (FNBC) -->
+    <div class="flex flex-col gap-16">
+        <p class="text-base-300 text-20"><strong>04/10/2026 · Investigación: Forma Normal de Boyce-Codd (FNBC / BCNF)</strong></p>
+        <p class="text-base-100 text-16/8">
+            <strong>Qué investigué:</strong> Revisé la Forma Normal de Boyce-Codd para comprender en qué casos la 3FN no es suficiente para eliminar todas las redundancias cuando existen múltiples claves candidatas superpuestas.
+        </p>
+        <p class="text-base-100 text-16/8">
+            <strong>Qué aprendí:</strong> Es una versión más estricta de la 3FN. La regla clave es que para cada dependencia funcional $X \rightarrow Y$, $X$ debe ser estrictamente una superclave o clave candidata. Si un determinante $X$ no es superclave, hay que descomponer la tabla. Con esto se eliminan anomalías de actualización que la 3FN a veces pasa por alto cuando hay claves primarias compuestas con solapamiento.
+        </p>
+        <p class="text-base-600 text-12">
+            Fuentes: <a href="https://www.studytonight.com/dbms/boyce-codd-normal-form.php" target="_blank" rel="noopener noreferrer" class="underline">Studytonight - BCNF in DBMS</a>
+        </p>
+    </div>
+
+    <!-- Investigación 4: Cuarta Forma Normal (4FN) -->
+    <div class="flex flex-col gap-16">
+        <p class="text-base-300 text-20"><strong>04/10/2026 · Investigación: Cuarta Forma Normal (4FN)</strong></p>
+        <p class="text-base-100 text-16/8">
+            <strong>Qué investigué:</strong> Busqué en qué consiste la 4FN y cómo identificar y resolver problemas causados por dependencias multivaluadas en un esquema relacional.
+        </p>
+        <p class="text-base-100 text-16/8">
+            <strong>Qué aprendí:</strong> La 4FN exige estar previamente en FNBC y elimina las dependencias multivaluadas ($X \twoheadrightarrow Y$). Esto sucede cuando un atributo determina un conjunto de valores independientes de otros atributos en la misma tabla (por ejemplo, si un jugador puede tener varios contactos de emergencia y varios torneos jugados en una sola tabla, produciendo combinaciones innecesarias). Se resuelve separando esas relaciones independientes en tablas distintas.
+        </p>
+        <p class="text-base-600 text-12">
+            Fuentes: <a href="https://www.geeksforgeeks.org/fourth-normal-form-4nf/" target="_blank" rel="noopener noreferrer" class="underline">GeeksforGeeks - Fourth Normal Form</a>
+        </p>
+    </div>
+
+    <!-- Investigación 5: Quinta Forma Normal (5FN) -->
+    <div class="flex flex-col gap-16">
+        <p class="text-base-300 text-20"><strong>04/10/2026 · Investigación: Quinta Forma Normal (5FN / PJNF)</strong></p>
+        <p class="text-base-100 text-16/8">
+            <strong>Qué investigué:</strong> Investigué la 5FN (Proyección-Unión) para entender cómo descomponer relaciones complejas $N$-arias sin perder información al volver a unirlas.
+        </p>
+        <p class="text-base-100 text-16/8">
+            <strong>Qué aprendí:</strong> Trata sobre las dependencias de reunión (Join Dependencies). Ocurre cuando una tabla $N$-aria (por ejemplo, con 3 atributos interconectados) no se puede descomponer en dos tablas sin perder datos, pero sí se puede descomponer en tres o más tablas pequeñas. Estar en 5FN garantiza que al hacer `JOIN` entre las tablas divididas no se generen filas "fantasma" o datos falsos.
+        </p>
+        <p class="text-base-600 text-12">
+            Fuentes: <a href="https://www.javatpoint.com/dbms-fifth-normal-form" target="_blank" rel="noopener noreferrer" class="underline">Javatpoint - Fifth Normal Form (5NF)</a>
+        </p>
+    </div>
+
+    <!-- Reto Propio: Torneo de fútbol -->
+    <div class="flex flex-col gap-16">
+        <p class="text-base-300 text-20"><strong>04/10/2026 · Reto propio: Modelar una base de datos para un torneo de fútbol</strong></p>
+        <p class="text-base-100 text-16/8">
+            <strong>Qué me propuse:</strong> Diseñar y normalizar desde cero un esquema de base de datos relacional completo para gestionar un torneo de fútbol (equipos, jugadores, partidos, estadios, árbitros y estadísticas como goles/tarjetas) aplicando las reglas de paso a tablas y normalización hasta FNBC.
+        </p>
+        <p class="text-base-100 text-16/8">
+            <strong>Resultado:</strong> Logré estructurar el diagrama relacional reduciendo las relaciones M:N (como jugadores jugando un partido específico) mediante tablas intermedias para registrar minutos jugados y sanciones. Lo más difícil fue definir la clave primaria compuesta del partido y controlar que la asignación de árbitros no violara la FNBC al evitar que un árbitro pite dos partidos simultáneos en la misma fecha y hora.
+        </p>
+    </div>
+</Section>
 </Layout>
