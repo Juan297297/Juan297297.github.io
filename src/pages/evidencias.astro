@@ -67,8 +67,61 @@ import Section from "../components/elements/Section.astro";
     </Section>
 
     <Section id="proyecto" titleHeading="Proyecto">
-        <p>Próximamente: aquí iré subiendo mis avances.</p>
-    </Section>
+    <div class="flex flex-col gap-16">
+
+        <p class="text-base-300 text-20"><strong>Sistema de Gestión del Fútbol Aficionado de Bogotá</strong></p>
+        <p class="text-base-600 text-12">
+            Bases de Datos 1 · Integrantes: Juan Esteban Palacios, Cristhian Guillermo Hernández y Juan Pablo Gómez · 22/10/2026
+        </p>
+
+        <p class="text-base-300 text-20"><strong>Resumen</strong></p>
+        <p class="text-base-100 text-16/8">
+            Propusimos una base de datos relacional y una aplicación web de consulta que centralizan la logística de los torneos de fútbol aficionado en Bogotá: ligas barriales, torneos de localidad y torneos de alto nivel. El sistema permite registrar torneos, equipos, jugadores, cuerpos técnicos, árbitros y canchas, programar partidos sin cruces de horario y consultar calendarios, plantillas y tablas de posiciones de forma rápida y confiable.
+        </p>
+
+        <p class="text-base-300 text-20"><strong>Problema</strong></p>
+        <p class="text-base-100 text-16/8">
+            Hoy estos torneos se organizan con hojas de cálculo, cuadernos, planillas en papel y grupos de WhatsApp. Esto genera información dispersa y duplicada, dificultad para saber qué jugadores y cuerpo técnico tuvo cada equipo en cada torneo, cruces de horarios de canchas, árbitros y equipos, cálculo manual de las tablas de posiciones con errores y discusiones, y pérdida del historial entre una temporada y otra.
+        </p>
+
+        <p class="text-base-300 text-20"><strong>Justificación</strong></p>
+        <p class="text-base-100 text-16/8">
+            Centralizar la información en una base de datos normalizada reduce los errores de programación y de cálculo, evita discusiones por resultados y conserva el historial de cada torneo. Los beneficiarios directos son los organizadores, los delegados de equipo, los árbitros y los jugadores; indirectamente, toda la comunidad que sigue estos torneos.
+        </p>
+
+        <p class="text-base-300 text-20"><strong>Modelo Entidad Relación</strong></p>
+        <p class="text-base-100 text-16/8">
+            Escribe aquí una explicación corta de tu MER final: las entidades principales (torneo, equipo, jugador, árbitro, cancha, partido) y las decisiones que tomaron.
+        </p>
+        <a
+            href="/evidencias/mer-final.png"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="underline text-base-300 text-16"
+        >
+            Ver Modelo Entidad Relación →
+        </a>
+
+        <p class="text-base-300 text-20"><strong>Reducción a Tablas</strong></p>
+        <p class="text-base-100 text-16/8">
+            Escribe aquí cómo pasaron el modelo a tablas: llaves primarias y foráneas, y cómo resolvieron las relaciones muchos a muchos.
+        </p>
+        <a
+            href="/evidencias/reduccion-tablas-proyecto.png"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="underline text-base-300 text-16"
+        >
+            Ver Reducción a Tablas →
+        </a>
+
+        <p class="text-base-300 text-20"><strong>Reflexión final</strong></p>
+        <p class="text-base-100 text-16/8">
+            Escribe aquí qué fue lo más difícil, qué aprendiste y qué mejorarías.
+        </p>
+
+    </div>
+</Section>
 
     <Section id="investigaciones" titleHeading="Investigaciones y retos">
     <!-- Investigación 1: Reducción a tablas -->
