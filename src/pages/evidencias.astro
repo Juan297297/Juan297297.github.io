@@ -80,7 +80,28 @@ import Section from "../components/elements/Section.astro";
 </Section>>
 
     <Section id="sql" titleHeading="SQL">
-        <p>Próximamente: aquí iré subiendo mis avances.</p>
+        <div class="flex flex-col gap-16">
+            <p class="text-base-300 text-20"><strong>Análisis de catálogo — Sello "Medallo Sound Records"</strong></p>
+            <p class="text-base-100 text-16/8">
+                El equipo de A&R y Marketing de <strong>Medallo Sound Records</strong> necesita preparar el balance de cierre de temporada para definir el presupuesto de promoción del próximo año. A partir de una base de datos relacional del género urbano (<code>ARTISTS</code>, <code>TRACKS</code> y <code>STUDIOS</code>), se plantearon 3 consultas SQL para auditar el estado de grabación, la antigüedad de los lanzamientos y el rendimiento en reproducciones frente al promedio del catálogo:
+            </p>
+
+            <div class="flex flex-col gap-4 text-base-100 text-16/8">
+                <p><strong>1. Auditoría de grabación por artista:</strong> Listar todas las canciones en mayúsculas (<code>UPPER</code>), su artista y el estudio donde se grabaron, mostrando <code>SIN ESTUDIO</code> (<code>NVL2</code>) si aún no tienen uno asignado, ordenado por artista y canción.</p>
+                <p><strong>2. Antigüedad de los lanzamientos:</strong> Mostrar los temas con fecha de estreno confirmada en formato <code>DD/MM/YYYY</code> (<code>TO_CHAR</code>) y los días completos transcurridos hasta hoy (<code>TRUNC</code> y <code>SYSDATE</code>), ordenados del más reciente al más antiguo.</p>
+                <p><strong>3. Clasificación de impacto en plataformas:</strong> Comparar las reproducciones de cada tema contra el promedio general calculado dinámicamente con una subconsulta dentro de un <code>CASE</code> (<code>HIT DEL CATALOGO</code> vs. <code>EN CRECIMIENTO</code>), ordenado de mayor a menor.</p>
+            </div>
+
+            <a href="/evidencias/nombre-imagen.png" target="_blank" rel="noopener noreferrer">
+                <img
+                    src="/evidencias/aBerica.png"
+                    alt="Consultas SQL del catálogo de Medallo Sound Records"
+                    class="w-full max-w-4xl"
+                    loading="lazy"
+                />
+            </a>
+            <p class="text-base-600 text-12">Si tocas la imagen podrás ampliarla.</p>
+        </div>
     </Section>
 
     <Section id="proyecto" titleHeading="Proyecto">
